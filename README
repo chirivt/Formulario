@@ -1,0 +1,47 @@
+# Formulario con Validaciones en Tiempo Real
+
+Este proyecto consiste en un formulario web interactivo con validaciones en tiempo real usando HTML, CSS y JavaScript. Permite validar los datos ingresados por el usuario como nombre de usuario, correo electrónico, número telefónico, país, contraseña y confirmación de contraseña. Además, muestra un resumen de los datos ingresados en una ventana emergente (modal).
+
+## 🚀 Funcionalidades
+
+- Validación en **tiempo real** de todos los campos (`input`).
+- Verificación de:
+  - Nombre de usuario (mínimo 6 caracteres, letras y números).
+  - Correo electrónico.
+  - Número de teléfono (7 a 10 dígitos).
+  - Contraseña (6 a 10 caracteres, mayúsculas, minúsculas y números).
+  - Confirmación de contraseña.
+  - Selección de país (más de 200 países).
+- El botón de **Enviar** se habilita solo si todos los campos son válidos.
+- Modal central con resumen de los datos ingresados.
+- Botón para **volver a llenar el formulario**.
+- **Enlace a GitHub** con ícono dentro del modal.
+
+## 🛠️ Tecnologías Utilizadas
+
+- HTML5
+- CSS3
+- JavaScript (vanilla)
+
+## 📦 Estructura del Proyecto
+
+├── index.html # Estructura del formulario
+├── styles.css # Estilos del formulario y del modal
+├── script.js # Lógica de validación y funcionalidad del modal
+└── README.md # Este archivo
+
+## 🖼️ Vista Previa
+
+Al completar todos los campos correctamente y presionar **Enviar**, se mostrará una pantalla emergente en el centro con los datos ingresados y un ícono que enlaza a tu perfil de GitHub.
+
+## 🌐 Enlace a GitHub
+
+[![GitHub](https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/github.svg)](https://github.com/chirivt)
+
+> Reemplaza `https://github.com/chirivt` por tu nombre de usuario real en GitHub.
+
+## 📋 Cómo usar
+
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/chirivt/formulario-validaciones
