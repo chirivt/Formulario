@@ -1,44 +1,54 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" /> <!-- Se establece la codificación de caracteres para admitir acentos y caracteres especiales -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!-- Hace que el sitio sea responsive -->
   <title>Formulario Validado</title>
   <style>
-    * { box-sizing: border-box; }
+    /* Configuración general */
+    * { box-sizing: border-box; } /* Hace que el padding y border no aumenten el ancho/alto total */
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
       font-family: 'Segoe UI', sans-serif;
-      background: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?fit=crop&w=1600&q=8') no-repeat center center/cover;
+      background: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?fit=crop&w=1600&q=8') no-repeat center center/cover; /* Fondo atractivo */
     }
+
+    /* Contenedor principal centrado */
     .container {
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100%;
       padding: 20px;
-      background-color: rgba(255,255,255,0.1);
-      backdrop-filter: blur(6px);
+      background-color: rgba(255,255,255,0.1); /* Transparencia blanca */
+      backdrop-filter: blur(6px); /* Desenfoque del fondo */
     }
+
+    /* Estilo del formulario */
     form {
       background: #fff;
       padding: 30px;
       border-radius: 12px;
       max-width: 500px;
       width: 100%;
-      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      box-shadow: 0 0 20px rgba(0,0,0,0.2); /* Sombra para elevar el formulario */
     }
+
+    /* Espaciado para cada grupo de input */
     .input-form {
       margin-bottom: 15px;
       position: relative;
     }
+
     label {
       font-weight: bold;
       display: block;
       margin-bottom: 5px;
     }
+
+    /* Campos de entrada */
     input, select, button {
       width: 100%;
       padding: 10px;
@@ -46,8 +56,12 @@
       border: 2px solid #ccc;
       border-radius: 5px;
     }
+
+    /* Colores de validación */
     input.valid, select.valid { border-color: green; background-color: #eaffea; }
     input.invalid, select.invalid { border-color: red; background-color: #ffeaea; }
+
+    /* Mensaje de error */
     .message {
       display: none;
       font-size: 0.85em;
@@ -55,6 +69,8 @@
       margin-top: 5px;
     }
     .message.visible { display: block; }
+
+    /* Mostrar/ocultar contraseña */
     .toggle-pass {
       position: absolute;
       top: 35px;
@@ -63,6 +79,8 @@
       font-size: 0.9em;
       color: #007bff;
     }
+
+    /* Botón enviar */
     button {
       background-color: #007bff;
       color: white;
@@ -71,15 +89,17 @@
     }
     button:hover { background-color: #0056b3; }
 
+    /* Modal emergente al enviar el formulario */
     #modal {
       display: none;
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.6);
+      background: rgba(0,0,0,0.6); /* Fondo oscuro */
       justify-content: center;
       align-items: center;
-      z-index: 9999;
+      z-index: 9999; /* Encima de todo */
     }
+
     #modal-content {
       background: white;
       padding: 25px;
@@ -89,14 +109,17 @@
       text-align: left;
       box-shadow: 0 0 15px rgba(0,0,0,0.3);
     }
+
     #modal-content button {
       margin-top: 15px;
       width: auto;
     }
+
+    /* Enlace a GitHub con ícono */
     .github-link {
       margin-top: 15px;
       display: inline-flex;
-      align-items: center;
+      align-items:flex-end;
       gap: 8px;
       text-decoration: none;
       font-weight: bold;
@@ -105,27 +128,32 @@
   </style>
 </head>
 <body>
+  <!-- Contenedor del formulario -->
   <div class="container">
     <form id="formulario" novalidate>
       <h2 style="text-align:center;">Formulario de Validación</h2>
 
+      <!-- Input usuario -->
       <div class="input-form">
         <label for="username">Nombre de usuario</label>
         <input type="text" id="username" placeholder="Ej. Pedro22" />
         <p class="message" id="msg-username">Debe tener al menos una letra minúscula y un número (6-16 caracteres).</p>
       </div>
 
+      <!-- Input correo -->
       <div class="input-form">
         <label for="email">Correo electrónico</label>
         <input type="email" id="email" placeholder="Ej. pedro@mail.com" />
         <p class="message" id="msg-email">Debe tener un formato válido como ejemplo@mail.com</p>
       </div>
 
+      <!-- Selector de país -->
       <div class="input-form">
         <label for="country">País</label>
         <select id="country">
-          <option value="">Seleccione un país</option>
-          <option value="58">Venezuela</option>
+        <option value="">Seleccione un país</option>
+<option value="" selected disabled>Select your Country</option>
+<option value="58">Venezuela</option>
 <option value="44">United Kingdom</option>
 <option value="1">United States</option>
 <option value="213">Algeria</option>
@@ -334,11 +362,11 @@
 <option value="967">Yemen</option>
 <option value="260">Zambia</option>
 <option value="263">Zimbabwe</option>
-
-        </select>
+</select>
         <p class="message" id="msg-country">Debe seleccionar un país.</p>
       </div>
 
+      <!-- Input teléfono separado del prefijo -->
       <div class="input-form">
         <label for="phone">Teléfono</label>
         <div style="display: flex; gap: 10px;">
@@ -348,6 +376,7 @@
         <p class="message" id="msg-phone">Solo números (7 a 10 dígitos).</p>
       </div>
 
+      <!-- Input contraseña con botón de mostrar -->
       <div class="input-form">
         <label for="password">Contraseña</label>
         <input type="password" id="password" placeholder="Ej. Pedro22*" />
@@ -355,6 +384,7 @@
         <p class="message" id="msg-password">Debe tener mayúscula, minúscula y número (6-10 caracteres).</p>
       </div>
 
+      <!-- Confirmación de contraseña -->
       <div class="input-form">
         <label for="confirm">Confirmar contraseña</label>
         <input type="password" id="confirm" placeholder="Ej. Pedro22*" />
@@ -362,15 +392,18 @@
         <p class="message" id="msg-confirm">Debe coincidir con la contraseña.</p>
       </div>
 
+      <!-- Botón de envío -->
       <button type="submit" id="btn-submit" disabled>Enviar</button>
     </form>
   </div>
 
+  <!-- Modal que aparece al enviar el formulario correctamente -->
   <div id="modal">
     <div id="modal-content">
       <div id="resumen"></div>
       <button onclick="closeModal()">Volver a llenar</button>
       <a class="github-link" href="https://github.com/chirivt/Formulario.git" target="_blank">
+        <!-- Ícono de GitHub -->
         <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 16 16" fill="black">
           <path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38
             0-.19-.01-.82-.01-1.49-2 .37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
@@ -387,8 +420,12 @@
     </div>
   </div>
 
-
-
+  <!-- Enlace al script JavaScript -->
   <script src="script.js"></script>
+  <footer style="text-align: center; padding: 15px; color: #fff; background-color: rgba(0, 0, 0, 0.5); position: fixed; width: 100%; bottom: 0;">
+  Desarrollado por <a href="https://github.com/chirivt" target="_blank" style="color: #fcfcfb; text-decoration: navajowhite;">Josué Chirivi</a>
+</footer>
+
 </body>
-<!-- No additional code needed. The <script> tag is correctly closed. -->
+</html>
+ 
